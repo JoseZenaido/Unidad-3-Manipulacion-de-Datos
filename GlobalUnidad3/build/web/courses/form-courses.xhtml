@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>#{str.coursesFormTitle}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h2>#{str.coursesformHeader}</h2>
+                <p:fieldset legend="#{str.coursesLegendForm}">
+                    <h:form>
+                        <p:inputText placeholder="#{str.titlePrompt}"
+                                     value="#{coursesBean.course.title}"></p:inputText>
+                                     <p:inputText placeholder="#{str.creditsPrompt}"
+                                                  value="#{coursesBean.course.credits}"></p:inputText> 
+                                                  <p:inputText placeholder="#{str.departmentPrompt}"
+                                                               value="#{coursesBean.course.department}"></p:inputText>
+                   
+                        <p:commandButton value="#{str.buttonSave}"
+                                         action="#{coursesBean.guardar()}"></p:commandButton>
+                        <p:commandButton value="#{str.buttonDelete}"
+                                         action="#{coursesBean.eliminar()}"></p:commandButton>
+                        <p:commandButton value="#{str.buttonCancel}"
+                                         action="#{coursesBean.cancelar()}"></p:commandButton>
+                    </h:form>
+                     </p:fieldset>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{str.questionFormHeader}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h1>#{str.questionsListTitle}</h1>
+                <h:form>
+                    <p:commandButton value="#{str.buttonAdd}"
+                                     action="#{questionDetBean.iniciar()}"></p:commandButton>
+                </h:form>
+                <p:dataTable value="#{questionDetBean.questions}" var="a">
+                    <p:column headerText="#{str.action}">
+                        <h:form>
+                            <p:commandButton value="#{str.buttonEdit}"
+                                             action="#{questionDetBean.editar(a)}"></p:commandButton>
+                        </h:form>
+                    </p:column>
+                    <p:column headerText="#{str.examPrompt}">
+                        <p:outputLabel value="#{a.examId}"></p:outputLabel>
+                    </p:column> 
+                    <p:column headerText="#{str.explonationPrompt}">
+                        <p:outputLabel value="#{a.explonation}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="#{str.multiPrompt}">
+                        <p:outputLabel value="#{a.isMultiSelect}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="#{str.markPrompt}">
+                        <p:outputLabel value="#{a.mark}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="#{str.starPrompt}">
+                        <p:outputLabel value="#{a.startSecond}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="#{str.textPrompt}">
+                        <p:outputLabel value="#{a.text}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="#{str.urlPrompt}">
+                        <p:outputLabel value="#{a.url}"></p:outputLabel>
+                    </p:column>
+                </p:dataTable>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

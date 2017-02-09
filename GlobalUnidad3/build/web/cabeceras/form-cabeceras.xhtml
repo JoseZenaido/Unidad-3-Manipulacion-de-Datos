@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>#{str.cabeceraFormHeader}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h2>#{str.cabeceraFormHeader}</h2>
+                <p:fieldset legend="#{str.cabeceraLegendForm}">
+                    <h:form>
+                        <p:inputText placeholder="#{str.idClientePrompt}"
+                                     value="#{cabeceraPedidoBean.cabecera.idCliente}"></p:inputText>
+                        <p:inputText placeholder="#{str.fechaPrompt}"
+                                     value="#{cabeceraPedidoBean.cabecera.fecha}"></p:inputText> 
+                        <p:inputText placeholder="#{str.idFormaPagoPrompt}"
+                                     value="#{cabeceraPedidoBean.cabecera.idFormaPago}"></p:inputText>
+                        
+
+                        <p:commandButton value="#{str.buttonSave}"
+                                         action="#{cabeceraPedidoBean.guardar()}"></p:commandButton>
+                        <p:commandButton value="#{str.buttonDelete}"
+                                         action="#{cabeceraPedidoBean.eliminar()}"></p:commandButton>
+                        <p:commandButton value="#{str.buttonCancel}"
+                                         action="#{cabeceraPedidoBean.cancelar()}"></p:commandButton>
+                    </h:form>
+                </p:fieldset>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
